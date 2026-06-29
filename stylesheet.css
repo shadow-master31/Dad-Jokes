@@ -1,0 +1,189 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --bg:        #0a0a0a;
+    --surface:   #141414;
+    --card:      #1c1c1c;
+    --border:    #2a2a2a;
+    --accent:    #c8f135;
+    --accent-dim:#8eb022;
+    --text:      #f0f0ed;
+    --muted:     #6b6b68;
+    --danger:    #ff5c5c;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+
+    --font-display: 'Syne', sans-serif;
+    --font-body:    'Inter', sans-serif;
+}
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1.25rem 4rem;
+}
+
+main {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+header {
+    text-align: center;
+}
+.eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(200, 241, 53, 0.1);
+    border: 1px solid rgba(200, 241, 53, 0.2);
+    border-radius: 100px;
+    padding: 4px 14px;
+    margin-bottom: 1rem;
+}
+h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 8vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text);
+}
+.subtitle {
+    margin-top: 0.5rem;
+    font-size: 15px;
+    color: var(--muted);
+}
+#joke-feed {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    min-height: 120px;
+}
+#empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+}
+.empty-icon { font-size: 2rem; line-height: 1; }
+#jokes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+#jokes li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.55;
+    animation: slide-in 0.22s ease;
+}
+#jokes li:last-child { border-bottom: none; }
+@keyframes slide-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.joke-num {
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(200, 241, 53, 0.1);
+    border-radius: 6px;
+    padding: 3px 8px;
+    margin-top: 2px;
+    min-width: 32px;
+    text-align: center;
+}
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+#cilck {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 24px;
+    height: 48px;
+    background: var(--accent);
+    color: #0a0a0a;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+#cilck:hover  { background: #d8ff3e; }
+#cilck:active { transform: scale(0.97); }
+#cilck.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.btn-icon {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 400;
+}
+#clear-btn {
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 20px;
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+}
+#clear-btn:hover {
+    color: var(--danger);
+    border-color: var(--danger);
+}
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+}
+footer a {
+    color: var(--accent-dim);
+    text-decoration: none;
+}
+footer a:hover { text-decoration: underline; }
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+@media (max-width: 480px) {
+    .controls { flex-direction: column; align-items: stretch; }
+    #cilck, #clear-btn { justify-content: center; }
+}

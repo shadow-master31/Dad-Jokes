@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dad Jokes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./stylesheet.css">
+</head>
+<body>
+    <main>
+        <header>
+            <span class="eyebrow">groan-worthy since always</span>
+            <h1>Dad Jokes</h1>
+            <p class="subtitle">Click the button. You've been warned.</p>
+        </header>
+
+        <section id="joke-feed">
+            <div id="empty-state">
+                <span class="empty-icon">🥁</span>
+                <p>No jokes yet. Hit the button.<br>Dad insists.</p>
+            </div>
+            <ul id="jokes"></ul>
+        </section>
+
+        <div class="controls">
+            <button id="cilck" type="button" aria-label="Fetch a new dad joke">
+                <span class="btn-icon">+</span>
+                Add a joke
+            </button>
+            <button id="clear-btn" type="button" aria-label="Clear all jokes">Clear all</button>
+        </div>
+
+        <footer>
+            <p>Powered by <a href="https://icanhazdadjoke.com" target="_blank" rel="noopener">icanhazdadjoke.com</a></p>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
